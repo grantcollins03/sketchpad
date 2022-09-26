@@ -1,9 +1,8 @@
-.container {
-    display: flex;
+#grid-container {
+    display: grid;
 }
 
-.square {
-    border: 1px solid black;
+.cell {
+    border: 1px solid red;
     margin: 1px;
-    padding: 8px;
 }
