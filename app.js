@@ -19,3 +19,10 @@ document.body.addEventListener("mouseover", function mouseOver(event) {
     event.target.style.backgroundColor = "black";
   }
 });
+
+/*
+document.querySelector("button").addEventListener("click", function() {
+  let newSize = prompt("Enter the new grid size:", 16);
+  createGrid(newSize);
+});
+*/
