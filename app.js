@@ -7,7 +7,6 @@ function createGrid(num) {
     cell.id = "cell";
     grid.appendChild(cell);
     grid.style.gridTemplateColumns = `repeat(${num}, 1fr)`;
-    grid.style.width = `${num}px`
   }
 }
 

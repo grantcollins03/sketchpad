@@ -1,9 +1,14 @@
-body {
+#container {
     display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #grid {
     display: grid;
+    min-width: 760px;
+    min-height: 760px;
+    border: 1px solid black;
 }
 
 .cell {
