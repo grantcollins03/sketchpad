@@ -27,6 +27,11 @@ function clearGrid() {
   }
 }
 
+document.getElementById("reset-btn").addEventListener("click", function(){
+  clearGrid();
+  createGrid(16);
+});
+
 //Upon button click, create a new grid with a number from the user 
 
 /*
