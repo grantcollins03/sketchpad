@@ -1,5 +1,25 @@
 * {
     font: 16px Helvetica;
+    background-color: rgb(189, 2, 2);
+}
+
+span {
+    margin: 0px 48px;
+    font-size: 48px;
+    font-family: 'Satisfy', cursive;
+    color: rgb(241, 187, 51)
+}
+
+h1 {
+    display: flex;
+    font-size: 24px;
+    text-transform: uppercase;
+    font-family: 'Noto Serif', serif;
+    font-weight: 700;
+    font-style: italic;
+    color: rgb(241, 187, 51);
+    align-items: center;
+    
 }
 
 #container {
@@ -9,22 +29,34 @@
     padding: 24px;
 }
 
-#btn {
-    padding: 16px 24px;
+#btn-container {
+    margin-top: 24px;
+    display: flex;
+    width: 80vw;
+}
+
+button {
+    height: 192px;
+    width: 192px;
+    font-size: 24px;
     background-color: white;
     border: 2px solid black;
-    border-radius: 16px;
+    border-radius: 50%;
     box-shadow: 2px 2px 10px 0px rgba(0,0,0,0.3);
 }
 
-#btn:hover {
+button:hover {
     box-shadow: 2px 4px 12px 0px rgba(0,0,0,0.5);
+}
+
+#reset-btn {
+    margin-left: auto;
 }
 
 #grid {
     display: grid;
-    min-width: 760px;
-    min-height: 760px;
+    min-width: 544px;
+    min-height: 544px;
     border: 2px solid black;
     box-shadow: 2px 2px 10px 0px rgba(0,0,0,0.3);
     margin-top: 24px;
@@ -35,6 +67,6 @@
 }
 
 .cell {
-    border: 2px solid black;
-    background-color: white;
+    border: 0px solid black;
+    background-color: rgb(189, 186, 186);
 }

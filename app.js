@@ -10,7 +10,7 @@ function createGrid(num) {
     grid.style.gridTemplateColumns = `repeat(${num}, 1fr)`;
   }
 }
-createGrid(16);
+createGrid(48);
 
 //Hover effect to change background color
 let cell = document.getElementById("cell");
