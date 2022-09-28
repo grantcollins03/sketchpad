@@ -16,6 +16,11 @@
     border-radius: 16px;
 }
 
+#btn:hover {
+    color: white;
+    background-color: black;
+}
+
 #grid {
     display: grid;
     min-width: 760px;
