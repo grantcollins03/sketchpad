@@ -34,31 +34,21 @@ document.getElementById("reset-btn").addEventListener("click", function(){
 
 //Upon button click, create a new grid with a number from the user 
 
-/*
 document.querySelector("button").addEventListener("click", function() {
+  let newSize = 16;
   while (true) {
-    let newSize = prompt("Enter a new grid size:", 16);
-    if (newSize < 4 || newSize > 100) {
-      let newSize = prompt("Please enter a number between 4 and 100:")
-      continue;
+    newSize = prompt("Enter a new grid size:");
+    if (newSize >= 4 && newSize <= 100) {
+      break;
+    } else if (newSize == null) {
+      return;
     } else {
-      clearGrid();
-      createGrid(newSize);
+      alert("Please enter a number between 4 and 100.");
     }
   }
-});
-*/
-
-/*
-document.querySelector("button").addEventListener("click", function() {
-  while (newSize < 4 || newSize > 100) {
-    let newSize = prompt("Enter a new grid size:", 16);
-  }  
   clearGrid();
   createGrid(newSize);
 });
-*/
-
 
 
 
