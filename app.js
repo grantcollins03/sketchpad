@@ -1,6 +1,6 @@
 let grid = document.getElementById("grid");
 
-//Create grid upon page load; reused in creating a new grid
+//Create grid upon page load; reused in Reset and Resize functions
 function createGrid(num) {
   for (i = 0; i < num ** 2; i++) {
     let cell = document.createElement("div");
@@ -12,15 +12,18 @@ function createGrid(num) {
 }
 createGrid(16);
 
-let cellHoverColor = "black";
+
 
 //Hover effect to change background color
 let cell = document.getElementById("cell");
+let cellHoverColor = "black";
+
 document.body.addEventListener("mouseover", function mouseOver(event) {
   if (event.target.className.toLowerCase() === "cell") {
     event.target.style.backgroundColor = cellHoverColor;
   }
 });
+
 
 //Remove current grid layout
 function clearGrid() {
@@ -35,7 +38,6 @@ document.getElementById("reset-btn").addEventListener("click", function(){
 });
 
 //Upon button click, create a new grid with a number from the user 
-
 document.getElementById("resize-btn").addEventListener("click", function() {
   let newSize = 16;
   while (true) {
@@ -52,18 +54,14 @@ document.getElementById("resize-btn").addEventListener("click", function() {
   createGrid(newSize);
 });
 
-//Change to color mode
-
+//Color mode btn event listener 
 document.getElementById("color-btn").addEventListener("click", function() {
-  let redValue = 0;
-  let greenValue = 0;
-  let blueValue = 0;
-  cellHoverColor = `rgb(${redValue}, ${greenValue}, ${blueValue})`
+  document.body.addEventListener("mouseover", function(event) {
+    if (event.target.className.toLowerCase() === "cell") {
+      let redValue = (Math.floor(Math.random() * 256));
+      let greenValue = (Math.floor(Math.random() * 256));
+      let blueValue = (Math.floor(Math.random() * 256));
+      cellHoverColor = `rgb(${redValue}, ${greenValue}, ${blueValue})`;
+    }
+  });
 });
-
-
-
-
-
-
-
