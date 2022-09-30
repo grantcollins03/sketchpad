@@ -54,7 +54,7 @@ document.getElementById("resize-btn").addEventListener("click", function() {
   createGrid(newSize);
 });
 
-//Color mode btn event listener 
+//Color mode
 document.getElementById("color-btn").addEventListener("click", function() {
   document.body.addEventListener("mouseover", function(event) {
     if (event.target.className.toLowerCase() === "cell") {
@@ -62,6 +62,6 @@ document.getElementById("color-btn").addEventListener("click", function() {
       let greenValue = (Math.floor(Math.random() * 256));
       let blueValue = (Math.floor(Math.random() * 256));
       cellHoverColor = `rgb(${redValue}, ${greenValue}, ${blueValue})`;
-    }
-  });
+    } 
+    });
 });
