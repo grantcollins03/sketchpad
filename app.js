@@ -12,11 +12,13 @@ function createGrid(num) {
 }
 createGrid(16);
 
+let cellHoverColor = "black";
+
 //Hover effect to change background color
 let cell = document.getElementById("cell");
 document.body.addEventListener("mouseover", function mouseOver(event) {
   if (event.target.className.toLowerCase() === "cell") {
-    event.target.style.backgroundColor = "black";
+    event.target.style.backgroundColor = cellHoverColor;
   }
 });
 
@@ -34,10 +36,10 @@ document.getElementById("reset-btn").addEventListener("click", function(){
 
 //Upon button click, create a new grid with a number from the user 
 
-document.querySelector("button").addEventListener("click", function() {
+document.getElementById("resize-btn").addEventListener("click", function() {
   let newSize = 16;
   while (true) {
-    newSize = prompt("Enter a new grid size:");
+    newSize = prompt("Enter a new size for your Magic Sketch Screen:");
     if (newSize >= 4 && newSize <= 100) {
       break;
     } else if (newSize == null) {
@@ -49,6 +51,18 @@ document.querySelector("button").addEventListener("click", function() {
   clearGrid();
   createGrid(newSize);
 });
+
+//Change to color mode
+
+document.getElementById("color-btn").addEventListener("click", function() {
+  let redValue = 0;
+  let greenValue = 0;
+  let blueValue = 0;
+  cellHoverColor = `rgb(${redValue}, ${greenValue}, ${blueValue})`
+});
+
+
+
 
 
 
