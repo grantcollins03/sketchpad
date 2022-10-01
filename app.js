@@ -1,6 +1,6 @@
+//Create grid upon page load; reused in Reset and Resize functions
 let grid = document.getElementById("grid");
 
-//Create grid upon page load; reused in Reset and Resize functions
 function createGrid(num) {
   for (i = 0; i < num ** 2; i++) {
     let cell = document.createElement("div");
@@ -12,11 +12,12 @@ function createGrid(num) {
 }
 createGrid(16);
 
-
-
 //Hover effect to change background color
 let cell = document.getElementById("cell");
-let cellHoverColor = "black";
+let redValue = 0;
+let greenValue = 0;
+let blueValue = 0;
+let cellHoverColor = `rgb(${redValue}, ${greenValue}, ${blueValue})`;
 
 document.body.addEventListener("mouseover", function mouseOver(event) {
   if (event.target.className.toLowerCase() === "cell") {
@@ -24,18 +25,12 @@ document.body.addEventListener("mouseover", function mouseOver(event) {
   }
 });
 
-
 //Remove current grid layout
 function clearGrid() {
     while (grid.firstChild) {
     grid.removeChild(grid.firstChild);
   }
 }
-
-document.getElementById("reset-btn").addEventListener("click", function(){
-  clearGrid();
-  createGrid(16);
-});
 
 //Upon button click, create a new grid with a number from the user 
 document.getElementById("resize-btn").addEventListener("click", function() {
@@ -54,14 +49,21 @@ document.getElementById("resize-btn").addEventListener("click", function() {
   createGrid(newSize);
 });
 
+//Reset the grid to 16x16, black hover
+document.getElementById("reset-btn").addEventListener("click", function() {
+  clearGrid();
+  createGrid(16);
+});
+
 //Color mode
 document.getElementById("color-btn").addEventListener("click", function() {
   document.body.addEventListener("mouseover", function(event) {
     if (event.target.className.toLowerCase() === "cell") {
-      let redValue = (Math.floor(Math.random() * 256));
-      let greenValue = (Math.floor(Math.random() * 256));
-      let blueValue = (Math.floor(Math.random() * 256));
-      cellHoverColor = `rgb(${redValue}, ${greenValue}, ${blueValue})`;
-    } 
-    });
+       redValue = (Math.floor(Math.random() * 256));
+       greenValue = (Math.floor(Math.random() * 256));
+       blueValue = (Math.floor(Math.random() * 256));
+    }
+    cellHoverColor = `rgb(${redValue}, ${greenValue}, ${blueValue})`; 
+  });
 });
+
