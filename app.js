@@ -1,5 +1,10 @@
-//Create grid upon page load; reused in Reset and Resize functions
+//Global variables
 let grid = document.getElementById("grid");
+let cell = document.getElementById("cell");
+let redValue = 0;
+let greenValue = 0;
+let blueValue = 0;
+let cellHoverColor;
 
 function createGrid(num) {
   for (i = 0; i < num ** 2; i++) {
@@ -9,22 +14,16 @@ function createGrid(num) {
     grid.appendChild(cell);
     grid.style.gridTemplateColumns = `repeat(${num}, 1fr)`;
   }
-  changeColor();
+  onHover();
 }
 createGrid(16);
 
-//Hover effect to change background color
-let cell = document.getElementById("cell");
-let redValue = 0;
-let greenValue = 0;
-let blueValue = 0;
-let cellHoverColor;
-
-//change color function
-function changeColor() {
+//Change color on cell hover
+function onHover() {
   document.body.addEventListener("mouseover", function (event) {
     if (event.target.className.toLowerCase() === "cell") {
       event.target.style.backgroundColor = cellHoverColor;
+      //switch (cellHoverColor) ?
       cellHoverColor = `rgb(${redValue}, ${greenValue}, ${blueValue})`;
     }
   });
@@ -74,4 +73,3 @@ document.getElementById("color-btn").addEventListener("click", function() {
     createGrid();
   });
 });
-
