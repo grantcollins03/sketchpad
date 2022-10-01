@@ -9,6 +9,7 @@ function createGrid(num) {
     grid.appendChild(cell);
     grid.style.gridTemplateColumns = `repeat(${num}, 1fr)`;
   }
+  changeColor();
 }
 createGrid(16);
 
@@ -17,13 +18,17 @@ let cell = document.getElementById("cell");
 let redValue = 0;
 let greenValue = 0;
 let blueValue = 0;
-let cellHoverColor = `rgb(${redValue}, ${greenValue}, ${blueValue})`;
+let cellHoverColor;
 
-document.body.addEventListener("mouseover", function mouseOver(event) {
-  if (event.target.className.toLowerCase() === "cell") {
-    event.target.style.backgroundColor = cellHoverColor;
-  }
-});
+//change color function
+function changeColor() {
+  document.body.addEventListener("mouseover", function (event) {
+    if (event.target.className.toLowerCase() === "cell") {
+      event.target.style.backgroundColor = cellHoverColor;
+      cellHoverColor = `rgb(${redValue}, ${greenValue}, ${blueValue})`;
+    }
+  });
+}
 
 //Remove current grid layout
 function clearGrid() {
@@ -52,6 +57,9 @@ document.getElementById("resize-btn").addEventListener("click", function() {
 //Reset the grid to 16x16, black hover
 document.getElementById("reset-btn").addEventListener("click", function() {
   clearGrid();
+  redValue = 0;
+  greenValue = 0;
+  blueValue = 0;
   createGrid(16);
 });
 
@@ -63,7 +71,7 @@ document.getElementById("color-btn").addEventListener("click", function() {
        greenValue = (Math.floor(Math.random() * 256));
        blueValue = (Math.floor(Math.random() * 256));
     }
-    cellHoverColor = `rgb(${redValue}, ${greenValue}, ${blueValue})`; 
+    createGrid();
   });
 });
 
